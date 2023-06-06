@@ -22,3 +22,7 @@ public class Solution {
 		return -1;
 	}
 }
+
+//my approach was right like thought of first storing the count of element using map and then accessing and comparing to find max
+//here i got confused about using iterator to acess map elements 
+//and also was litlle ambigous about what to take max for comparison
