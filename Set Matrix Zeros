@@ -1,0 +1,65 @@
+Problem Description:
+        Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+Solution:
+
+import java.io.*;
+import java.util.* ;
+
+public class Solution {
+    public static void setZeros(int matrix[][]) {
+        // Write your code here..
+        // number of rows
+        int m = matrix.length;
+        // number of columns
+        int n = matrix[0].length;
+
+        // for checking if first row and column contains 0
+        boolean isRow0Contains0 =false,isCol0Contains0=false;
+
+        // checking if row 0 contains0
+        for(int i=0;i<n;i++){
+            if(matrix[0][i]==0)
+                isRow0Contains0 =true;
+        }
+
+        // checking if column contains 0
+        for(int i=0;i<m;i++){
+            if(matrix[i][0]==0)
+                isCol0Contains0 =true;
+        }
+
+        // checking which all rows and columns contains 0
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+                if(matrix[i][j]==0){
+                    matrix[i][0]=0;
+                    matrix[0][j]=0;
+                }
+            }
+        }
+
+        // setting 0s
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+                if(matrix[i][0] ==0 || matrix[0][j]==0){
+                    matrix[i][j]=0;
+                }
+            }
+        }
+
+        // setting 0s for first row
+        if(isRow0Contains0){
+            for(int i=0;i<n;i++){
+                matrix[0][i]=0;
+            }
+        }
+
+        // setting 0s for first column
+        if(isCol0Contains0){
+            for(int i=0;i<m;i++){
+                matrix[i][0]=0;
+            }
+        }
+    }
+
+}
